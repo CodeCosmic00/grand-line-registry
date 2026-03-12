@@ -16,7 +16,7 @@ const express = require("express");
 const path = require("path");
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const HTTP_PORT = process.env.PORT || 8080;
 
 const crewMembers = [
   {
@@ -224,6 +224,6 @@ app.use((err, req, res, next) => {
     .send(`500 - Something went wrong on the Thousand Sunny: ${err.message}`);
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(HTTP_PORT, () => {
+  console.log(`Server running on port ${HTTP_PORT}`);
 });
