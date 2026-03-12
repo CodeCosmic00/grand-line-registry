@@ -1,0 +1,35 @@
+<nav class="navbar bg-[#061125] border-b border-white/5 px-5 lg:px-6">
+  <div class="navbar-start">
+    <a href="/" class="text-white text-xl font-bold flex items-center gap-2">
+      <span class="text-sky-400 text-2xl">⚓</span>
+      <span>Grand Line Registry</span>
+    </a>
+  </div>
+
+  <div class="navbar-center hidden lg:flex">
+    <ul class="menu menu-horizontal px-1 text-white text-base gap-1">
+      <li><a href="/">Home</a></li>
+      <li><a href="/crew">Crew</a></li>
+      <li><a href="/recruit">Recruit</a></li>
+      <li><a href="/log-pose">Log Pose</a></li>
+    </ul>
+  </div>
+
+  <div class="navbar-end hidden lg:flex">
+    <span class="badge badge-outline text-white border-white/60 rounded-full px-4 py-3 text-sm font-medium">
+      <%= title %>
+    </span>
+  </div>
+
+  <div class="navbar-end lg:hidden">
+    <div class="dropdown dropdown-end">
+      <div tabindex="0" role="button" class="btn btn-ghost text-white text-xl">☰</div>
+      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#0c1833] rounded-box w-52 text-white">
+        <li><a href="/">Home</a></li>
+        <li><a href="/crew">Crew</a></li>
+        <li><a href="/recruit">Recruit</a></li>
+        <li><a href="/log-pose">Log Pose</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

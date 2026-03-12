@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="night">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grand Line Registry - Crew</title>
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body class="bg-[#07142c] min-h-screen text-white">
+  <%- include("partials/navbar", { title: "Crew Roster" }) %>
+
+  <main class="px-3 md:px-6 py-8">
+    <section class="mb-8">
+      <h1 class="text-4xl font-bold text-white">Crew Roster</h1>
+      <p class="text-white/45 text-lg mt-2">
+        All registered members of the Straw Hat Pirates
+      </p>
+    </section>
+
+    <div class="overflow-x-auto">
+      <table class="table w-full text-base">
+        <thead class="text-white/50 text-sm">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Devil Fruit</th>
+            <th>Bounty (Berries)</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (const member of crew) { %>
+            <tr class="border-b border-white/5 hover:bg-white/3">
+              <td><%= member.id %></td>
+              <td class="font-bold text-white"><%= member.name %></td>
+              <td><%= member.role %></td>
+              <td><%= member.devilFruit %></td>
+              <td><%= member.bounty.toLocaleString() %></td>
+              <td>
+                <% if (member.status === "active") { %>
+                  <span class="badge bg-cyan-400 text-black border-0 rounded-full px-3 py-1 text-sm">
+                    Active
+                  </span>
+                <% } else if (member.status === "pending") { %>
+                  <span class="badge bg-yellow-400 text-black border-0 rounded-full px-3 py-1 text-sm">
+                    Pending Approval
+                  </span>
+                <% } else { %>
+                  <span class="badge bg-pink-400 text-black border-0 rounded-full px-3 py-1 text-sm">
+                    Bounty Frozen
+                  </span>
+                <% } %>
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>

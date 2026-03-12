@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="night">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grand Line Registry - Home</title>
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body class="bg-[#07142c] min-h-screen text-white">
+  <%- include("partials/navbar", { title: "The Crew" }) %>
+
+  <main class="px-3 md:px-6 py-8">
+    <section class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-white mb-3">
+        The Straw Hat Pirates
+      </h1>
+      <p class="text-lg text-white/45">
+        The crew sailing toward the title of King of the Pirates
+      </p>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+      <% crew.forEach(member => { %>
+        <div class="card bg-[#081734] shadow-md rounded-3xl">
+          <div class="card-body min-h-[210px]">
+            <div class="flex items-start justify-between gap-4">
+              <h2 class="card-title text-xl font-semibold text-white leading-snug">
+                <%= member.name %>
+              </h2>
+
+              <% if (member.status === "active") { %>
+                <span class="badge bg-cyan-400 text-black border-0 rounded-full px-3 py-1 text-sm">
+                  Active
+                </span>
+              <% } else if (member.status === "pending") { %>
+                <span class="badge bg-yellow-400 text-black border-0 rounded-full px-3 py-1 text-sm">
+                  Pending Approval
+                </span>
+              <% } else { %>
+                <span class="badge bg-pink-400 text-black border-0 rounded-full px-3 py-1 text-sm">
+                  Bounty Frozen
+                </span>
+              <% } %>
+            </div>
+
+            <div class="space-y-3 mt-3 text-sm">
+              <p>
+                <span class="font-bold uppercase tracking-widest text-white/40">Role:</span>
+                <span class="text-white ml-1"><%= member.role %></span>
+              </p>
+              <p>
+                <span class="font-bold uppercase tracking-widest text-white/40">Devil Fruit:</span>
+                <span class="text-white ml-1"><%= member.devilFruit %></span>
+              </p>
+              <p>
+                <span class="font-bold uppercase tracking-widest text-white/40">Bounty:</span>
+                <span class="text-white ml-1"><%= member.bounty.toLocaleString() %> Berries</span>
+              </p>
+            </div>
+
+            <div class="card-actions justify-end mt-6">
+              <a href="/crew" class="btn btn-sm bg-sky-400 hover:bg-sky-300 text-black border-0 rounded-lg">
+                View All Crew
+              </a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </section>
+  </main>
+</body>
+</html>
